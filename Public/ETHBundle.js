@@ -31214,10 +31214,8 @@ exports.payment = function(privateKey, gasPrice, gasLimit, to, value, nonce) {
     return serializedTx.toString('hex')
 }
 
-exports.submit = function(tx) {
-    client.send(function (json) {
-        console.log(json)
-    }, client.router.submit, tx)
+exports.submit = function(tx,callback) {
+    client.send(callback,client.router.submit, tx)
 }
 
 exports.balance = function(address,callback) {
